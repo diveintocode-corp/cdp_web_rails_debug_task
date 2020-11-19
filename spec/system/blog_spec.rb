@@ -15,7 +15,7 @@ RSpec.describe 'タスク管理機能', type: :system do
         find('#new_blog').click
         fill_in 'Title', with: 'タイトル１'
         fill_in 'Content', with: 'コンテンツ１'
-        find('#submit').click
+        find('input[type="submit"]').click
         expect(page).to have_content 'タイトル１'
       end
     end
@@ -39,7 +39,7 @@ RSpec.describe 'タスク管理機能', type: :system do
         find('#edit').click
         fill_in 'Title', with: '編集したタイトル'
         fill_in 'Content', with: '編集したコンテンツ'
-        find('#submit').click
+        find('input[type="submit"]').click
         expect(page).to have_content '編集したタイトル'
       end
     end
