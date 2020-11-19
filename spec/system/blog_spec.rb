@@ -12,10 +12,10 @@ RSpec.describe 'タスク管理機能', type: :system do
     context 'ブログを新規作成した場合' do
       it '作成したブログが表示される' do
         visit blogs_path
-        click_on 'New Blog'
+        find('#new_blog').click
         fill_in 'Title', with: 'タイトル１'
         fill_in 'Content', with: 'コンテンツ１'
-        click_on 'Create Blog'
+        find('#submit').click
         expect(page).to have_content 'タイトル１'
       end
     end
@@ -25,7 +25,7 @@ RSpec.describe 'タスク管理機能', type: :system do
       it '該当ブログの内容が表示される' do
         FactoryBot.create(:blog)
         visit blogs_path
-        click_on 'Show'
+        find('#show').click
         expect(page).to have_content 'コンテンツ１'
         expect(current_path).to eq(blog_path(1))
       end
@@ -36,10 +36,10 @@ RSpec.describe 'タスク管理機能', type: :system do
       it '該当ブログの内容が表示される' do
         FactoryBot.create(:blog)
         visit blogs_path
-        click_on 'Edit'
+        find('#edit').click
         fill_in 'Title', with: '編集したタイトル'
         fill_in 'Content', with: '編集したコンテンツ'
-        click_on 'Update Blog'
+        find('#submit').click
         expect(page).to have_content '編集したタイトル'
       end
     end
@@ -50,7 +50,7 @@ RSpec.describe 'タスク管理機能', type: :system do
         FactoryBot.create(:blog)
         visit blogs_path
         page.accept_confirm do
-          click_on 'Destroy'
+          find('#destroy').click
         end
         expect(page).not_to have_content 'コンテンツ１'
       end
