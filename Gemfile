@@ -31,6 +31,12 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'spring'
+  gem 'rspec-rails' #RSpecを使用するために、必要
+  gem 'spring-commands-rspec' #springを使用できるようにすることで、rspecテストの実行時間を短縮
+  gem 'factory_bot_rails' #factory_botを使用する
+  gem 'faker' #フィクスチャを作成する
+  gem 'launchy' #Rubyで外部アプリケーションを起動できる(現在、ブラウザの起動のみがサポートされている)
 end
 
 group :development do
