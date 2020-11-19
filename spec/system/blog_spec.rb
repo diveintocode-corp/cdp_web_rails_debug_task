@@ -50,7 +50,7 @@ RSpec.describe 'タスク管理機能', type: :system do
         FactoryBot.create(:blog)
         visit blogs_path
         page.accept_confirm do
-          click_on 'Delete'
+          click_on 'Destroy'
         end
         expect(page).not_to have_content 'コンテンツ１'
       end
