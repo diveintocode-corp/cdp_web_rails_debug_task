@@ -4,7 +4,7 @@ RSpec.describe 'タスク管理機能', type: :system do
     context 'ルートパスに遷移した場合' do
       it '一覧画面が表示される' do
         visit root_path
-        expect(current_path).to eq(blogs_path)
+        expect(page).to have_content 'Blogs'
       end
     end
   end
